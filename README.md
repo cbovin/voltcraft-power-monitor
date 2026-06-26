@@ -27,6 +27,11 @@ vanilla-JS frontend. Protocol inspired by
 ```bash
 git clone https://github.com/cbovin/voltcraft-power-monitor.git
 cd voltcraft-power-monitor
+
+# create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+
 pip install -e .
 ```
 
