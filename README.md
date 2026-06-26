@@ -12,6 +12,15 @@ Built with [bleak](https://github.com/hbldh/bleak) (BLE), FastAPI and a tiny
 vanilla-JS frontend. Protocol inspired by
 [Heckie75/voltcraft-sem-3600bt](https://github.com/Heckie75/voltcraft-sem-3600bt).
 
+## Screenshot
+
+![Web UI showing live power, voltage/current/power-factor/frequency cards, an
+electricity-price editor with cost estimates, and a power-history chart](docs/screenshot.png)
+
+The dashboard shows the live power reading with an on/off toggle, instantaneous
+electrical measurements, a configurable electricity price with cost-per-hour and
+energy/cost-today figures, and a power-history chart (15 m / 1 h / 6 h / 24 h).
+
 ## Features
 
 - 🔌 Turn the socket **on/off** from the browser
@@ -117,6 +126,9 @@ BCD bytes.
 | GET  | `/api/config`  | — | current price/currency |
 | POST | `/api/config`  | `{"price_per_kwh":0.28,"currency":"€"}` | update price |
 | POST | `/api/rescan`  | — | force a fresh BLE scan |
+
+Full request/response shapes and the BLE protocol (UUIDs, login secret, command
+payloads, measurement frame) are documented in [docs/API.md](docs/API.md).
 
 ## License
 
