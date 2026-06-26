@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voltcraft-sem-3600bt"
+version = "0.1.0"
+description = "Web app to monitor power and control a Voltcraft SEM-3600BT BLE smart socket"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [{ name = "Cristian Bovino" }]
+keywords = ["voltcraft", "sem-3600bt", "bluetooth", "ble", "power-meter", "smart-plug", "energy"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Topic :: Home Automation",
+]
+dependencies = [
+  "bleak>=0.22",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+]
+
+[project.urls]
+Homepage = "https://github.com/cbovin/voltcraft-power-monitor"
+Source = "https://github.com/cbovin/voltcraft-power-monitor"
+
+[project.scripts]
+voltcraft-sem = "voltcraft_sem.cli:main"
+
+[tool.setuptools]
+packages = ["voltcraft_sem"]
+
+[tool.setuptools.package-data]
+voltcraft_sem = ["web/*"]

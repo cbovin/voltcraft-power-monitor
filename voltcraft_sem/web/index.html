@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voltcraft SEM-3600BT</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">⚡</span>
+    <div>
+      <h1>Voltcraft SEM-3600BT</h1>
+      <div class="device" id="device">Searching for device…</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <button class="ghost" id="rescan" title="Scan for the device again">Rescan</button>
+    <span class="pill" id="pill"><span class="dot"></span><span id="pillText">…</span></span>
+  </div>
+</header>
+
+<main>
+  <section class="hero card">
+    <div class="hero-power">
+      <div class="label">Power</div>
+      <div class="big"><span id="w">—</span><span class="unit">W</span></div>
+      <div class="sub" id="costRate">— /h</div>
+    </div>
+    <div class="hero-control">
+      <span class="state-badge state-off" id="badge">—</span>
+      <label class="switch" id="switchWrap" title="">
+        <input type="checkbox" id="toggle" disabled>
+        <span class="slider"></span>
+      </label>
+      <div class="control-hint" id="controlHint"></div>
+    </div>
+  </section>
+
+  <section class="metrics">
+    <div class="card metric"><div class="label">Voltage</div><div class="val"><span id="v">—</span><span class="unit">V</span></div></div>
+    <div class="card metric"><div class="label">Current</div><div class="val"><span id="a">—</span><span class="unit">A</span></div></div>
+    <div class="card metric"><div class="label">Power factor</div><div class="val"><span id="pf">—</span></div></div>
+    <div class="card metric"><div class="label">Frequency</div><div class="val"><span id="hz">—</span><span class="unit">Hz</span></div></div>
+  </section>
+
+  <section class="card cost">
+    <div class="cost-form">
+      <div class="label">Electricity price</div>
+      <div class="price-row">
+        <input type="number" id="price" step="0.01" min="0" inputmode="decimal">
+        <input type="text" id="currency" maxlength="3" class="cur">
+        <span class="per">per kWh</span>
+        <button id="savePrice">Save</button>
+      </div>
+    </div>
+    <div class="cost-figures">
+      <div><div class="label">Cost now</div><div class="val"><span id="costNow">—</span><span class="unit">/h</span></div></div>
+      <div><div class="label">Energy today</div><div class="val"><span id="kwhToday">—</span><span class="unit">kWh</span></div></div>
+      <div><div class="label">Cost today</div><div class="val"><span id="costToday">—</span></div></div>
+    </div>
+  </section>
+
+  <section class="card chartcard">
+    <div class="chart-head">
+      <div class="label">Power history</div>
+      <div class="ranges" id="ranges">
+        <button data-min="15">15m</button>
+        <button data-min="60" class="active">1h</button>
+        <button data-min="360">6h</button>
+        <button data-min="1440">24h</button>
+      </div>
+    </div>
+    <div class="chart-wrap"><canvas id="chart"></canvas></div>
+    <div class="chart-foot" id="rangeEnergy"></div>
+  </section>
+</main>
+
+<div class="toasts" id="toasts"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
